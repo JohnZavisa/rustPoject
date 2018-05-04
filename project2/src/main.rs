@@ -64,38 +64,23 @@ impl Student {
     }
 
     //letter grade method
-    fn final_calc(cla: u32, ola: u32, quiz: u32, exam: u32, final_exam: u32) -> String {
+     fn final_calc(cla: u32, ola: u32, quiz: u32, exam: u32, final_exam: u32) ->$
         let total = cla + ola + quiz + exam + final_exam;
 
-        let mut letter : String = " ".to_string();
+        //let mut letter : String = " ".to_string();
 
-        if total >= 90 {
-            letter = "A".to_string();
-        }else if total >= 87 && total < 90{
-            letter = "B+".to_string();
-        }else if total >= 83 && total < 87{
-            letter = "B".to_string();
-        }else if total >= 80 && total < 83{
-            letter = "B-".to_string();
-        }else if total >= 77 && total < 80{
-            letter = "C+".to_string();
-        }else if total >= 73 && total < 77{
-            letter = "C".to_string();
-        }else if total >= 70 && total < 73{
-            letter = "C-".to_string();
-        }else if total >= 67 && total < 70{
-            letter = "D+".to_string();
-        }else if total >= 63 && total < 67{
-            letter = "D".to_string();
-        }else if total >= 60 && total < 63{
-            letter = "D-".to_string();
-        }else if total < 60{
-            letter = "F".to_string();
-        }
+        match total {
+                0...60 => "F",
+                61...70 => "D",
+                71...80 => "C",
+                81...90 => "B",
+                91...100 => "A",
+                _ => "invalid",
+        }.to_string()
 
-        letter
-    }  
+    }
 }
+
 
 //main
 fn main() {
